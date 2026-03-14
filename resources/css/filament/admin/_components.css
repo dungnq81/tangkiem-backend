@@ -1,0 +1,76 @@
+/*
+|--------------------------------------------------------------------------
+| Components Layer
+|--------------------------------------------------------------------------
+| Reusable component styles
+*/
+
+@layer components {
+	/* Sidebar item with slide effect */
+	.sidebar-item-animated {
+		transition: all 0.2s ease;
+	}
+
+	.sidebar-item-animated:hover {
+		transform: translateX(4px);
+	}
+}
+
+/*
+|--------------------------------------------------------------------------
+| Curator Image Column — Center inside URL wrapper
+|--------------------------------------------------------------------------
+| When CuratorColumn has ->url(), Filament wraps it in an <a> with
+| fi-ta-col-has-column-url. Center the image content within that wrapper.
+*/
+.fi-ta-col.fi-ta-col-has-column-url:has(.curator-column) {
+	justify-content: center;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Curator Media Grid Overrides
+|--------------------------------------------------------------------------
+| Override default Curator styles (placed outside @layer for higher specificity)
+| Change aspect ratio from 16/9 to 1/1 and remove fixed height
+*/
+.fi-resource-media .fi-ta .fi-ta-record:has(.curator-grid-column) .fi-ta-record-content-ctn .fi-ta-record-content {
+	aspect-ratio: 4 / 3;
+	height: auto;
+	width: 100%;
+	padding: 0;
+}
+
+.fi-resource-media .fi-ta .fi-ta-record:has(.curator-grid-column) label {
+	aspect-ratio: 4 / 3;
+	height: auto;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Sidebar Scrollbar
+|--------------------------------------------------------------------------
+| Make the sidebar scrollbar thinner (4px instead of default)
+*/
+
+.fi-sidebar-nav::-webkit-scrollbar {
+	width: 1px;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 2px;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.fi-ta-image:not(.fi-inline) {
+	padding-inline: calc(var(--spacing) * 3);
+	padding-block: calc(var(--spacing) * 3);
+}

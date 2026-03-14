@@ -1,0 +1,18 @@
+/*
+|--------------------------------------------------------------------------
+| Utilities Layer
+|--------------------------------------------------------------------------
+| Custom utility classes
+*/
+
+@layer utilities {
+	/* Hide scrollbar */
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+}
