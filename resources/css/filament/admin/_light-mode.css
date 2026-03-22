@@ -1,0 +1,527 @@
+/*
+|--------------------------------------------------------------------------
+| Light Mode Overrides — Deep Red + Navy Blue (Cool Tones)
+|--------------------------------------------------------------------------
+| Color scheme: Deep crimson/rose primary, dark navy accents
+| Background: Cool blue-grey for light, airy feel
+| Text: Near-black for maximum contrast
+|
+| Only targets :root:not(.dark) — dark mode untouched.
+*/
+
+/* ═══════════════════════════════════════════════════════════════
+   1. Typography
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) {
+	font-size: 106.25%; /* 17px base */
+
+	/* Override primary color: Indigo → Rose (deep red) — LIGHT MODE ONLY */
+	--primary-50: oklch(0.969 0.015 12.422);
+	--primary-100: oklch(0.941 0.03 12.58);
+	--primary-200: oklch(0.892 0.058 10.001);
+	--primary-300: oklch(0.81 0.117 11.638);
+	--primary-400: oklch(0.712 0.194 13.428);
+	--primary-500: oklch(0.645 0.246 16.439);
+	--primary-600: oklch(0.586 0.253 17.585);
+	--primary-700: oklch(0.514 0.222 16.935);
+	--primary-800: oklch(0.455 0.188 13.697);
+	--primary-900: oklch(0.41 0.159 10.539);
+	--primary-950: oklch(0.271 0.105 12.094);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   2. Body & Layout — Cool blue-grey background
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-body {
+	background-color: #d5dbe6;
+}
+
+/* Cards & Sections */
+:root:not(.dark) .fi-section {
+	background-color: #ffffff;
+	box-shadow:
+		0 1px 4px rgba(0, 0, 0, 0.07),
+		0 2px 8px rgba(0, 0, 0, 0.04);
+	border: 1px solid #d4d9e3;
+	border-radius: 0.75rem;
+}
+
+/* Login card */
+:root:not(.dark) .fi-simple-main {
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.1),
+		0 4px 12px rgba(0, 0, 0, 0.06);
+	border: 1px solid #d4d9e3;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3. Sidebar — Dark navy tinted background
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-sidebar {
+	background-color: #e6e8f0;
+	border-inline-end: 1px solid #cdd1de;
+}
+
+/* Sidebar group labels — navy blue, bold uppercase */
+:root:not(.dark) .fi-sidebar-group-label {
+	color: #1e3a5f;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 0.6875rem;
+	letter-spacing: 0.06em;
+}
+
+/* Sidebar item text — near-black */
+:root:not(.dark) .fi-sidebar-item-label {
+	color: #0f172a;
+	font-weight: 500;
+}
+
+/* Sidebar item icons — dark navy */
+:root:not(.dark) .fi-sidebar-item-btn > .fi-icon {
+	color: #1e3a5f;
+	opacity: 0.55;
+}
+
+/* Active sidebar item — deep red highlight */
+:root:not(.dark) .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+	background-color: rgba(159, 18, 57, 0.08);
+	border-inline-start: 3px solid #9f1239;
+	border-radius: 0 0.5rem 0.5rem 0;
+}
+
+:root:not(.dark) .fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-sidebar-item-label {
+	color: #881337;
+	font-weight: 700;
+}
+
+:root:not(.dark) .fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-icon {
+	color: #9f1239;
+	opacity: 1;
+}
+
+/* Hover state */
+:root:not(.dark) .fi-sidebar-item.fi-sidebar-item-has-url > .fi-sidebar-item-btn:hover {
+	background-color: rgba(30, 58, 95, 0.05);
+}
+
+/* Sidebar badges */
+:root:not(.dark) .fi-sidebar-item .fi-badge {
+	font-weight: 700;
+	font-size: 0.6875rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   4. Topbar
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-topbar nav {
+	background-color: #ffffff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+	border-bottom: 1px solid #d4d9e3;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. Tables
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-ta {
+	border: 1px solid #d4d9e3;
+	border-radius: 0.75rem;
+	overflow: hidden;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Table header — cool dark background */
+:root:not(.dark) .fi-ta-header-cell {
+	color: #0f172a;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 0.6875rem;
+	letter-spacing: 0.05em;
+	background-color: #e4e8f0;
+}
+
+/* Table cell text — near-black */
+:root:not(.dark) .fi-ta-col-wrp {
+	color: #0f172a;
+}
+
+/* Table row hover — subtle navy tint */
+:root:not(.dark) .fi-ta-record:hover .fi-ta-record-content {
+	background-color: rgba(30, 58, 95, 0.04);
+}
+
+/* Striped rows */
+:root:not(.dark) .fi-ta-record:nth-child(even) .fi-ta-record-content {
+	background-color: rgba(228, 232, 240, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   6. Forms
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-fo-field-wrp label {
+	color: #0f172a;
+	font-weight: 600;
+}
+
+:root:not(.dark) .fi-fo-field-wrp .fi-fo-field-wrp-helper-text {
+	color: #334155;
+}
+
+:root:not(.dark) .fi-input-wrp {
+	border: 1px solid #b0b8c9;
+	background-color: #ffffff;
+}
+
+:root:not(.dark) .fi-input-wrp:focus-within {
+	border-color: #9f1239;
+	box-shadow: 0 0 0 3px rgba(159, 18, 57, 0.12);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   7. Badges — VIVID, HIGH CONTRAST
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-badge {
+	font-weight: 700;
+	font-size: 0.75rem;
+}
+
+/* Success — vivid green */
+:root:not(.dark) .fi-badge.fi-color-success {
+	background-color: #bbf7d0 !important;
+	color: #14532d !important;
+	border: 1.5px solid #4ade80 !important;
+}
+
+/* Danger — vivid red */
+:root:not(.dark) .fi-badge.fi-color-danger {
+	background-color: #fecdd3 !important;
+	color: #881337 !important;
+	border: 1.5px solid #fb7185 !important;
+}
+
+/* Warning — vivid amber */
+:root:not(.dark) .fi-badge.fi-color-warning {
+	background-color: #fde68a !important;
+	color: #78350f !important;
+	border: 1.5px solid #f59e0b !important;
+}
+
+/* Info — vivid sky blue */
+:root:not(.dark) .fi-badge.fi-color-info {
+	background-color: #bae6fd !important;
+	color: #0c4a6e !important;
+	border: 1.5px solid #38bdf8 !important;
+}
+
+/* Primary — deep rose/red */
+:root:not(.dark) .fi-badge.fi-color-primary {
+	background-color: #ffe4e6 !important;
+	color: #881337 !important;
+	border: 1.5px solid #fda4af !important;
+}
+
+/* Gray — cool slate */
+:root:not(.dark) .fi-badge.fi-color-gray {
+	background-color: #e2e8f0 !important;
+	color: #0f172a !important;
+	border: 1.5px solid #94a3b8 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   8. Buttons
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-btn.fi-color-primary:not(.fi-btn-outlined):not(.fi-link) {
+	box-shadow:
+		0 2px 6px rgba(159, 18, 57, 0.25),
+		0 1px 3px rgba(159, 18, 57, 0.15);
+}
+
+:root:not(.dark) .fi-btn.fi-color-primary:not(.fi-btn-outlined):not(.fi-link):hover {
+	box-shadow:
+		0 4px 12px rgba(159, 18, 57, 0.35),
+		0 2px 6px rgba(159, 18, 57, 0.2);
+	transform: translateY(-1px);
+}
+
+:root:not(.dark) .fi-btn.fi-btn-outlined {
+	border-width: 1.5px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   9. Breadcrumbs
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-breadcrumbs-item a {
+	color: #1e293b;
+	font-weight: 500;
+}
+
+:root:not(.dark) .fi-breadcrumbs-item a:hover {
+	color: #9f1239;
+}
+
+:root:not(.dark) .fi-breadcrumbs-item-separator {
+	color: #64748b;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   10. Stats widgets — Navy left border accent
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-wi-stats-overview-stat {
+	background-color: #ffffff;
+	box-shadow:
+		0 2px 8px rgba(0, 0, 0, 0.08),
+		0 4px 16px rgba(0, 0, 0, 0.04);
+	border: 1px solid #d4d9e3;
+	border-left: 4px solid #1e3a5f;
+	border-radius: 0.75rem;
+}
+
+:root:not(.dark) .fi-wi-stats-overview-stat:hover {
+	box-shadow:
+		0 6px 24px rgba(30, 58, 95, 0.12),
+		0 4px 12px rgba(0, 0, 0, 0.06);
+	transform: translateY(-2px);
+	transition: all 0.2s ease;
+	border-left-color: #9f1239;
+}
+
+:root:not(.dark) .fi-wi-stats-overview-stat-value {
+	color: #0f172a;
+	font-weight: 800;
+}
+
+:root:not(.dark) .fi-wi-stats-overview-stat-label {
+	color: #1e293b;
+	font-weight: 600;
+}
+
+:root:not(.dark) .fi-wi-stats-overview-stat-description {
+	font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   11. Page headings
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-page-heading {
+	color: #0f172a;
+	font-weight: 800;
+}
+
+:root:not(.dark) .fi-page-sub-heading {
+	color: #1e293b;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   12. Tabs
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-tabs {
+	background-color: #f1f3f8;
+	border: 1px solid #d4d9e3;
+	border-radius: 0.75rem;
+	padding: 0.25rem;
+}
+
+:root:not(.dark) .fi-tabs-tab {
+	color: #334155;
+	font-weight: 500;
+}
+
+:root:not(.dark) .fi-tabs-tab.fi-active {
+	color: #881337;
+	font-weight: 700;
+	background-color: #ffffff;
+	border-radius: 0.5rem;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+:root:not(.dark) .fi-tabs-tab:hover:not(.fi-active) {
+	color: #0f172a;
+	background-color: rgba(30, 58, 95, 0.04);
+	border-radius: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   13. Empty state
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-ta-empty-state-heading {
+	color: #0f172a;
+	font-weight: 700;
+}
+
+:root:not(.dark) .fi-ta-empty-state-description {
+	color: #334155;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   14. Notifications (container must stay invisible)
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-no {
+	border: none !important;
+	box-shadow: none !important;
+}
+
+:root:not(.dark) .fi-no-notification {
+	box-shadow:
+		0 8px 24px rgba(0, 0, 0, 0.12),
+		0 4px 8px rgba(0, 0, 0, 0.06);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   15. Modal
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-modal-window {
+	box-shadow:
+		0 12px 48px rgba(0, 0, 0, 0.15),
+		0 6px 20px rgba(0, 0, 0, 0.08);
+	border: 1px solid #d4d9e3;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   16. Scrollbar
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-sidebar-nav::-webkit-scrollbar {
+	width: 4px;
+}
+
+:root:not(.dark) .fi-sidebar-nav::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+:root:not(.dark) .fi-sidebar-nav::-webkit-scrollbar-thumb {
+	background-color: rgba(30, 58, 95, 0.2);
+	border-radius: 2px;
+}
+
+:root:not(.dark) .fi-sidebar-nav::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(30, 58, 95, 0.35);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   17. Dropdown menus
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-dropdown-panel {
+	box-shadow:
+		0 8px 24px rgba(0, 0, 0, 0.12),
+		0 4px 8px rgba(0, 0, 0, 0.06);
+	border: 1px solid #d4d9e3;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   18. Pagination
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-pagination-item {
+	color: #1e293b;
+	font-weight: 500;
+}
+
+:root:not(.dark) .fi-pagination-item.fi-active {
+	background-color: #9f1239;
+	color: #ffffff;
+	font-weight: 700;
+	box-shadow: 0 2px 6px rgba(159, 18, 57, 0.35);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   19. Checkbox
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-checkbox-input {
+	border-color: #94a3b8;
+}
+
+:root:not(.dark) .fi-checkbox-input:checked {
+	background-color: #9f1239;
+	border-color: #9f1239;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   20. Table action icons
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-ta-actions .fi-icon-btn .fi-icon {
+	color: #334155;
+}
+
+:root:not(.dark) .fi-ta-actions .fi-icon-btn:hover .fi-icon {
+	color: #9f1239;
+}
+
+:root:not(.dark) .fi-ta-header-toolbar .fi-icon-btn .fi-icon {
+	color: #334155;
+}
+
+:root:not(.dark) .fi-ta-header-toolbar .fi-icon-btn:hover .fi-icon {
+	color: #9f1239;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   21. Infolist
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-in-entry-wrp label {
+	color: #334155;
+	font-weight: 600;
+}
+
+:root:not(.dark) .fi-in-text {
+	color: #0f172a;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   22. Textarea
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) textarea.fi-textarea-input {
+	border: 1px solid #b0b8c9;
+}
+
+:root:not(.dark) textarea.fi-textarea-input:focus {
+	border-color: #9f1239;
+	box-shadow: 0 0 0 3px rgba(159, 18, 57, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   23. Select
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-select-input {
+	border: 1px solid #b0b8c9;
+}
+
+:root:not(.dark) .fi-select-input:focus {
+	border-color: #9f1239;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   24. Header actions
+   ═══════════════════════════════════════════════════════════════ */
+
+:root:not(.dark) .fi-page-header-actions .fi-btn.fi-btn-outlined {
+	border-color: #b0b8c9;
+	color: #1e293b;
+}
+
+:root:not(.dark) .fi-page-header-actions .fi-btn.fi-btn-outlined:hover {
+	border-color: #9f1239;
+	color: #881337;
+	background-color: rgba(159, 18, 57, 0.04);
+}

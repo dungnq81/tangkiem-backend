@@ -1,0 +1,24 @@
+/*
+|--------------------------------------------------------------------------
+| Base Layer
+|--------------------------------------------------------------------------
+| Reset, typography, default element styles
+*/
+
+@layer base {
+	/* HTML - Critical for LCP/CLS */
+	html {
+		font-size: 100%;
+		font-variant-ligatures: no-common-ligatures;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+		scroll-behavior: smooth;
+	}
+
+	/* Better focus styles */
+	:focus-visible {
+		outline: 2px solid rgb(var(--primary-500));
+		outline-offset: 2px;
+	}
+}
