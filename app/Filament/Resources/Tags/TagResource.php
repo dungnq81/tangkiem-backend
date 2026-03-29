@@ -1,0 +1,78 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Filament\Resources\Tags;
+
+use App\Filament\Resources\Tags\Pages\CreateTag;
+use App\Filament\Resources\Tags\Pages\EditTag;
+use App\Filament\Resources\Tags\Pages\ListTags;
+use App\Filament\Resources\Tags\Schemas\TagForm;
+use App\Filament\Resources\Tags\Tables\TagsTable;
+use App\Filament\Concerns\HasCachedNavigationBadge;
+use App\Models\Tag;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+
+class TagResource extends Resource
+{
+    use HasCachedNavigationBadge;
+    protected static ?string $model = Tag::class;
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static \UnitEnum|string|null $navigationGroup = 'Danh mục';
+
+    protected static ?int $navigationSort = 1;
+
+    public static function getModelLabel(): string
+    {
+        return 'Thẻ';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Thẻ';
+    }
+
+    public static function form(Schema $schema): Schema
+    {
+        return TagForm::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return TagsTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListTags::route('/'),
+            'create' => CreateTag::route('/create'),
+            'edit' => EditTag::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getCachedCount();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'primary';
+    }
+}

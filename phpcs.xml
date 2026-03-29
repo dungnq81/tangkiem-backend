@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<ruleset name="Laravel Project">
+	<description>Coding standard for Laravel project with PSR-12</description>
+
+	<!-- ============================================== -->
+	<!-- BASE STANDARD                                  -->
+	<!-- ============================================== -->
+	<rule ref="PSR12" />
+
+	<!-- ============================================== -->
+	<!-- ARRAY RULES                                    -->
+	<!-- ============================================== -->
+
+	<!-- Use short array syntax [] instead of array() -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
+	<!-- Align => in arrays -->
+	<!-- DISABLED: causes excessive spacing in large config arrays -->
+	<!--
+	<rule ref="Squiz.Arrays.ArrayDeclaration">
+		<exclude name="Squiz.Arrays.ArrayDeclaration.NoKeySpecified" />
+		<exclude name="Squiz.Arrays.ArrayDeclaration.KeySpecified" />
+		<exclude name="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed" />
+		<exclude name="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed" />
+		<exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned" />
+		<exclude name="Squiz.Arrays.ArrayDeclaration.ValueNotAligned" />
+		<exclude name="Squiz.Arrays.ArrayDeclaration.KeyNotAligned" />
+		<exclude name="Squiz.Arrays.ArrayDeclaration.CloseBraceNewLine" />
+		<exclude name="Squiz.Arrays.ArrayDeclaration.FirstValueNoNewline" />
+		<exclude name="Squiz.Arrays.ArrayDeclaration.FirstIndexNoNewline" />
+	</rule>
+	-->
+
+	<!-- ============================================== -->
+	<!-- FORMATTING & SPACING                           -->
+	<!-- ============================================== -->
+
+	<!-- Space after cast: (int) $var -->
+	<rule ref="Generic.Formatting.SpaceAfterCast" />
+
+	<!-- No space after NOT operator: !$var -->
+	<rule ref="Generic.Formatting.SpaceAfterNot">
+		<properties>
+			<property name="spacing" value="0" />
+		</properties>
+	</rule>
+
+	<!-- Align assignments: $a = 1; $bb = 2; -->
+	<!-- DISABLED: causes excessive spacing in config files with long keys -->
+	<!-- <rule ref="Generic.Formatting.MultipleStatementAlignment">
+		<properties>
+			<property name="maxPadding" value="12" />
+			<property name="alignAtEnd" value="false" />
+		</properties>
+	</rule> -->
+
+	<!-- No whitespace at end of lines -->
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+		<properties>
+			<property name="ignoreBlankLines" value="true" />
+		</properties>
+	</rule>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.StartFile" />
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EndFile" />
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines" />
+
+	<!-- ============================================== -->
+	<!-- CODE QUALITY                                   -->
+	<!-- ============================================== -->
+
+	<!-- No unused function parameters -->
+	<!-- <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter" /> -->
+
+	<!-- No empty statements -->
+	<rule ref="Generic.CodeAnalysis.EmptyStatement">
+		<exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCatch" />
+	</rule>
+
+	<!-- No unnecessary final modifier -->
+	<rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier" />
+
+	<!-- Detect useless overriding methods -->
+	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod" />
+
+	<!-- Avoid duplicate class names -->
+	<rule ref="Generic.Classes.DuplicateClassName" />
+
+	<!-- ============================================== -->
+	<!-- STRINGS                                        -->
+	<!-- ============================================== -->
+
+	<!-- Prefer single quotes when no variable interpolation -->
+	<rule ref="Squiz.Strings.DoubleQuoteUsage.NotRequired" />
+
+	<!-- No unnecessary string concatenation -->
+	<rule ref="Generic.Strings.UnnecessaryStringConcat">
+		<properties>
+			<property name="allowMultiline" value="true" />
+		</properties>
+	</rule>
+
+	<!-- ============================================== -->
+	<!-- COMMENTS (optional, can be strict)             -->
+	<!-- ============================================== -->
+
+	<!-- Detect TODO/FIXME comments -->
+	<rule ref="Generic.Commenting.Todo" />
+	<rule ref="Generic.Commenting.Fixme" />
+
+	<!-- ============================================== -->
+	<!-- PHP BEST PRACTICES                             -->
+	<!-- ============================================== -->
+
+	<!-- Avoid deprecated functions -->
+	<rule ref="Generic.PHP.DeprecatedFunctions" />
+
+	<!-- Lowercase PHP constants: true, false, null -->
+	<rule ref="Generic.PHP.LowerCaseConstant" />
+
+	<!-- Lowercase PHP keywords: if, else, foreach -->
+	<rule ref="Generic.PHP.LowerCaseKeyword" />
+
+	<!-- Lowercase PHP types: int, string, bool -->
+	<rule ref="Generic.PHP.LowerCaseType" />
+
+	<!-- No silenced errors with @ -->
+	<rule ref="Generic.PHP.NoSilencedErrors" />
+
+	<!-- Disallow short open tag <?  -->
+	<rule ref="Generic.PHP.DisallowShortOpenTag" />
+
+	<!-- Require strict types declaration (optional - uncomment if needed) -->
+	<!-- <rule ref="Generic.PHP.RequireStrictTypes" /> -->
+
+	<!-- ============================================== -->
+	<!-- NAMING CONVENTIONS                             -->
+	<!-- ============================================== -->
+
+	<!-- CamelCase for method names -->
+	<rule ref="PSR1.Methods.CamelCapsMethodName">
+		<exclude-pattern>tests/*</exclude-pattern>
+	</rule>
+
+	<!-- ============================================== -->
+	<!-- LARAVEL DIRECTORIES                            -->
+	<!-- ============================================== -->
+
+	<file>app</file>
+	<file>config</file>
+	<file>routes</file>
+	<file>database</file>
+	<file>tests</file>
+
+	<!-- ============================================== -->
+	<!-- EXCLUSIONS                                     -->
+	<!-- ============================================== -->
+
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>storage/*</exclude-pattern>
+	<exclude-pattern>bootstrap/*</exclude-pattern>
+	<exclude-pattern>public/*</exclude-pattern>
+	<exclude-pattern>resources/views/*</exclude-pattern>
+	<exclude-pattern>*.blade.php</exclude-pattern>
+	<exclude-pattern>*.js</exclude-pattern>
+	<exclude-pattern>*.css</exclude-pattern>
+	<exclude-pattern>*.min.php</exclude-pattern>
+	<exclude-pattern>_ide_helper*.php</exclude-pattern>
+	<exclude-pattern>database/migrations/*_create_permission_tables.php</exclude-pattern>
+	<exclude-pattern>.phpstorm.meta.php</exclude-pattern>
+
+	<!-- ============================================== -->
+	<!-- CLI OPTIONS                                    -->
+	<!-- ============================================== -->
+
+	<!-- Show progress and colors -->
+	<arg value="sp" />
+	<arg name="colors" />
+
+	<!-- Only check PHP files -->
+	<arg name="extensions" value="php" />
+
+	<!-- Use parallel processing (faster) -->
+	<arg name="parallel" value="8" />
+
+	<!-- Report format -->
+	<arg name="report" value="full" />
+
+	<!-- PHP version -->
+	<config name="php_version" value="80200" />
+
+	<!-- Ignore warnings on exit -->
+	<config name="ignore_warnings_on_exit" value="1" />
+</ruleset>

@@ -1,0 +1,75 @@
+@php
+    $items = $getMedia();
+    $overlap = $getOverlap() ?? 'sm';
+    $imageCount = count($items);
+    $ring = match ($getRing()) {
+        0 => 'ring-0',
+        1 => 'ring-1',
+        2 => 'ring-2',
+        4 => 'ring-4',
+        default => 'ring',
+    };
+
+    $overlap = match ($overlap) {
+        0 => 'space-x-0',
+        2 => '-space-x-2',
+        3 => '-space-x-3',
+        4 => '-space-x-4',
+        default => '-space-x-1',
+    };
+
+    $resolution = $getResolution();
+
+    $height = $getImageHeight();
+    $width = $getImageWidth() ?? ($isRounded() ? $height : null);
+@endphp
+
+<div {{ $attributes->merge($getExtraAttributes())->class([
+    'curator-column px-4 py-3',
+    $overlap . ' flex items-center' => $imageCount > 1,
+]) }}>
+    @if ($items)
+        @foreach ($items as $item)
+            <div style="
+                                                            {!! $height !== null ? "height: {$height};" : null !!}
+                                                            {!! $width !== null ? "width: {$width};" : null !!}
+                                                        " @class([
+                                                            'rounded-full overflow-hidden' => $isRounded(),
+                                                            $ring . ' ring-white dark:ring-gray-900' => $imageCount > 1,
+                                                        ])>
+                @php
+                    $img_width = $width ? (int) $width : null;
+                    $img_height = $height ? (int) $height : null;
+
+                    if ($resolution) {
+                        $img_width *= $resolution;
+                        $img_height *= $resolution;
+                    }
+                @endphp
+
+                <x-curator::display :item="$item" :src="$item->thumbnailUrl" :lazy="true" icon-classes="size-6" :width="$width"
+                    :height="$height" @class([
+                        'bg-gray-100 dark:bg-gray-950/50',
+                        'h-full w-auto checkered' => curator()->isSvg($item->ext),
+                        'max-w-none' => $height && !$width,
+                        'object-cover object-center' => !curator()->isSvg($item->ext) && ($isRounded() || $width || $height),
+                        'w-full h-full' => curator()->isDocument($item->ext)
+                    ]) />
+            </div>
+        @endforeach
+    @else
+        @php
+            $placeholderH = $height !== null ? (int) $height : 40;
+            $placeholderW = $width !== null ? (int) $width : $placeholderH;
+            $iconSize = max(16, (int) ($placeholderH * 0.5));
+        @endphp
+        <div style="height: {{ $placeholderH }}px; width: {{ $placeholderW }}px;" @class([
+            'flex items-center justify-center bg-gray-100 dark:bg-gray-800',
+            'rounded-full' => $isRounded(),
+            'rounded-md' => !$isRounded(),
+        ])>
+            <x-filament::icon icon="heroicon-o-photo" style="height: {{ $iconSize }}px; width: {{ $iconSize }}px;"
+                class="text-gray-400 dark:text-gray-500" />
+        </div>
+    @endif
+</div>

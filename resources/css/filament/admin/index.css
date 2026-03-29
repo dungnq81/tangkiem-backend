@@ -1,0 +1,28 @@
+/*
+|--------------------------------------------------------------------------
+| TangKiem Admin Theme - Entry Point
+|--------------------------------------------------------------------------
+*/
+
+/* Base Filament theme */
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+/* Tailwind source scanning */
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+/* Vendor packages - source scanning for Tailwind classes */
+@source '../../../../vendor/awcodes/filament-curator/resources/**/*';
+
+/* Curator custom CSS (checkered, grid layouts, etc.) */
+@import '../../../../vendor/awcodes/filament-curator/resources/css/plugin.css';
+
+/* Custom layers */
+@import './_base.css';
+@import './_theme.css';
+@import './_components.css';
+@import './_utilities.css';
+@import './_roles.css';
+@import './_dashboard.css';
+@import './_analytics.css';
+@import './_light-mode.css';

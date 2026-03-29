@@ -1,0 +1,12 @@
+/*
+|--------------------------------------------------------------------------
+| Theme Configuration
+|--------------------------------------------------------------------------
+| CSS variables, custom properties, design tokens
+*/
+
+/* Theme tokens - extends Tailwind theme */
+@theme {
+	/* Fonts */
+	--font-mono: Consolas, 'Liberation Mono', Courier, monospace;
+}
